@@ -5,6 +5,72 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var ArticleUno = {
+    title: 'Article Uno | Chinmay K.',
+    heading : 'Article Uno' ,
+    date: '15 August 2017',
+    content: 'This is article one'
+    
+    
+};
+function createTemplate (data)
+{
+    var title= data.title;
+    var date=data.date;
+    var heading=data.heading;
+    var content=data.content;
+
+ var htmltemplate=` 
+         <html>
+            <head>
+                <title>
+                    ${title}
+                </title>
+                <style>
+                    .container
+                    {
+                           max-width: 800px;
+                             margin: 0 auto;
+                            color: #1d1f1b;
+                            font-family: sans-serif;
+                            padding-top: 60px;
+                            padding-left: 30px;
+                            padding-right: 30px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="Container">
+                <div>
+                    <a href="/">HOMEBOY</a>
+                </div>
+                <hr/>
+                <h3>
+                    ${heading}
+                </h3>
+                <div>
+                    ${date}
+                </div>
+                <div>
+                    <p>
+                        First Article content First Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article content
+                    </p>
+                    <p>
+                        First Article content First Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article content
+                    </p>
+                    <p>
+                        First Article content First Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article content
+                    </p>
+                </div>
+                </div>
+            </body>
+            
+        </html>`;
+ 
+return htmltemplate;
+}
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
