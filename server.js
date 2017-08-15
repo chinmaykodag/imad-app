@@ -11,19 +11,19 @@ var articles={
         heading : 'Article Uno' ,
         date: '15 August 2017',
         content: 'This is article one'
-    };
+    },
     'article-two':  {
         title: 'Article Dos | Chinmay K.',
         heading : 'Article Dos' ,
         date: '15 August 2017',
         content: 'This is article two'
-    };
+    },
     'article-three':  {
         title: 'Article Tres | Chinmay K.',
         heading : 'Article Tres' ,
         date: '15 August 2017',
         content: 'This is article three'
-    };
+    },
     
 };
 function createTemplate (data)
@@ -81,8 +81,9 @@ return htmltemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one',function(req, res){
-     res.send(createTemplate(ArticleUno));
+app.get('/:articleName',function(req, res){
+    var articleName=req.params.articleName;
+     res.send(createTemplate(article(articleName)));
 });
 app.get('/article-two',function(req, res){
     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
