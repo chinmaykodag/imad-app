@@ -3,9 +3,9 @@ console.log('Loaded!');
 var img=document.getElementById('eesha');
 marginLeft=0;
 function moveRight(){
-    marginLeft=marginLeft+10;
-    img.style.marginLeft=marginLeft+'px';
+    marginLeft=marginLeft + 10;
+    img.style.marginLeft=marginLeft + 'px';
 }
 img.onclick=function (){
-    var interval=setInteral(moveRight,100);
+    var interval=setInterval(moveRight,100);
 };
