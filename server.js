@@ -53,13 +53,7 @@ function createTemplate (data)
                 </div>
                 <div>
                     <p>
-                        First Article content First Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article content
-                    </p>
-                    <p>
-                        First Article content First Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article content
-                    </p>
-                    <p>
-                        First Article content First Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article contentFirst Article content
+                      ${content}
                     </p>
                 </div>
                 </div>
@@ -72,7 +66,7 @@ return htmltemplate;
 
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  res.send(createTemplate(ArticleUno));
 });
 app.get('/article-one',function(req, res){
      res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
