@@ -37,7 +37,7 @@ function createTemplate (data)
          <html>
             <head>
                 <title>
-                    ${title}
+                    Counter
                 </title>
                 <style>
                     .container
